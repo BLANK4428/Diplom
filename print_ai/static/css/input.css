@@ -1,0 +1,64 @@
+/* ── Input wrapper ───────────────────────────────────────── */
+.input-wrapper {
+  padding: 14px 32px 22px;
+  background: var(--sidebar);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: background .35s ease;
+}
+
+/* ── Input row ───────────────────────────────────────────── */
+.input-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 10px 10px 10px 18px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.input-area:focus-within {
+  border-color: var(--txt2);
+  box-shadow: 0 0 0 3px rgba(128,128,128,.1), 0 2px 8px rgba(0,0,0,.25);
+}
+
+/* ── Textarea ────────────────────────────────────────────── */
+textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--txt);
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: none;
+  max-height: 140px;
+  overflow-y: auto;
+}
+textarea::placeholder { color: var(--txt3); }
+textarea::-webkit-scrollbar { width: 3px; }
+textarea::-webkit-scrollbar-thumb { background: var(--border2); }
+
+/* ── Send button ─────────────────────────────────────────── */
+.send-btn {
+  width: 36px; height: 36px;
+  background: var(--btn-bg);
+  border: none;
+  border-radius: 50%;
+  color: var(--btn-txt);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  transition: background .25s ease, transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+}
+.send-btn:hover:not(:disabled) {
+  background: var(--btn-hover);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.send-btn:active:not(:disabled) { transform: scale(.9); box-shadow: none; }
+.send-btn:disabled { background: var(--card2); color: var(--txt3); cursor: not-allowed; box-shadow: none; }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print AI — Опера-принт</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ─── Loading screen ───────────────────────────────────── -->
+<div id="loader" class="loader">
+  <div class="loader-logo">PRINT<em>AI</em></div>
+  <div class="loader-bar"></div>
+</div>
+
+<div class="app">
+  {% include '_sidebar.html' %}
+
+  <!-- ─── Main ─────────────────────────────────────────────── -->
+  <div class="main">
+    <div class="chat-header">
+      <div>
+        <div class="chat-title">ИИ-менеджер типографии</div>
+        <div class="chat-subtitle">Опишите заказ — система извлечёт все параметры автоматически</div>
+      </div>
+      <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Сменить тему">
+        <span id="theme-icon"></span>
+      </button>
+    </div>
+
+    <div id="chat" class="chat">
+      <div class="welcome" id="welcome">
+        <div class="welcome-mark">—</div>
+        <h2>Добро пожаловать</h2>
+        <p>Опишите заказ в свободной форме. Система задаст уточняющие вопросы и сформирует структурированное техническое задание.</p>
+        <div class="examples">
+          <div class="example-title">Примеры:</div>
+          <div class="example-chips">
+            <span class="chip" onclick="useExample(this)">Нужны визитки 500 шт., двусторонние, мелованная 350 г, стандартный формат</span>
+            <span class="chip" onclick="useExample(this)">Листовки А5, тираж 1000 шт., офсет 90 г, односторонняя печать</span>
+            <span class="chip" onclick="useExample(this)">Брошюра А4, 20 страниц, 300 экземпляров, мягкая обложка, скрепка</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
+      <div class="input-area">
+        <textarea
+          id="text"
+          placeholder="Опишите заказ..."
+          rows="1"
+          onkeydown="handleKey(event)"
+          oninput="autoResize(this)"
+        ></textarea>
+        <button id="send-btn" class="send-btn" onclick="send()" title="Отправить (Enter)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include '_modal.html' %}
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

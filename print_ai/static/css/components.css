@@ -1,0 +1,254 @@
+/* ── Download card ───────────────────────────────────────── */
+.dl-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 0;
+  min-width: 270px;
+  max-width: 360px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+
+.dl-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .1px;
+  color: var(--txt);
+  padding: 13px 14px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--accent);
+}
+
+.dl-card-date {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--txt3);
+  font-variant-numeric: tabular-nums;
+}
+
+.dl-card-meta {
+  font-size: 12px;
+  color: var(--txt2);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dl-card-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 14px;
+  padding: 8px 14px;
+  background: var(--btn-bg);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--btn-txt);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  width: calc(100% - 28px);
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: background .25s ease, transform .15s ease, box-shadow .25s ease;
+}
+.dl-card-btn:hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+.dl-card-btn:active { transform: translateY(0); }
+
+.h-no-file {
+  display: block;
+  font-size: 12px;
+  color: var(--txt3);
+  font-style: italic;
+  margin: 12px 14px;
+}
+
+/* ── Table inside history card ───────────────────────────── */
+.h-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.h-tbl tr { border-bottom: 1px solid var(--border); }
+.h-tbl tr:last-child { border-bottom: none; }
+.h-tbl td { padding: 6px 14px; vertical-align: top; }
+.h-tbl td:first-child { color: var(--txt2); width: 42%; }
+
+/* ── Modal overlay ───────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+  padding: 20px;
+  animation: fadeIn .2s ease;
+}
+.modal-overlay.hidden { display: none; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal window ────────────────────────────────────────── */
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: slideUp .22s cubic-bezier(.25,.46,.45,.94);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--accent);
+}
+
+.modal-check {
+  width: 40px; height: 40px;
+  border: 1.5px solid var(--txt2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--txt);
+  margin-bottom: 14px;
+  background: var(--card2);
+}
+
+.modal-header h2 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.modal-header p  { font-size: 12px; color: var(--txt2); }
+
+.modal-body {
+  padding: 4px 0;
+  max-height: 340px;
+  overflow-y: auto;
+}
+.modal-body::-webkit-scrollbar { width: 3px; }
+.modal-body::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* ── Order summary table ─────────────────────────────────── */
+.order-tbl { width: 100%; border-collapse: collapse; }
+.order-tbl tr { border-bottom: 1px solid var(--border); }
+.order-tbl tr:last-child { border-bottom: none; }
+.order-tbl tr:hover { background: var(--accent); }
+.order-tbl td { padding: 10px 24px; font-size: 13px; vertical-align: top; }
+.ol { color: var(--txt2); font-weight: 500; width: 45%; padding-right: 10px; }
+.ov { color: var(--txt); }
+
+/* ── Modal footer ────────────────────────────────────────── */
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--accent);
+}
+
+.btn-dl {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 10px 14px;
+  background: var(--btn-bg);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--btn-txt);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background .25s ease, transform .15s ease;
+}
+.btn-dl:hover  { background: var(--btn-hover); transform: translateY(-1px); }
+.btn-dl:active { transform: translateY(0); }
+
+.btn-cancel {
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  color: var(--txt2);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+.btn-cancel:hover { background: var(--card2); color: var(--txt); border-color: var(--txt2); }
+
+/* ── Loading screen ──────────────────────────────────────── */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transition: opacity .5s ease;
+}
+.loader.fade-out { opacity: 0; pointer-events: none; }
+
+.loader-logo {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--txt);
+  animation: loaderPulse 1.8s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.loader-logo::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--txt);
+  animation: loaderPulse 1.8s ease-in-out infinite reverse;
+}
+.loader-logo em { font-style: normal; color: var(--txt3); }
+
+.loader-bar {
+  width: 120px;
+  height: 2px;
+  background: var(--border2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.loader-bar::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 40%;
+  background: var(--txt2);
+  border-radius: 2px;
+  animation: loaderSlide 1.2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+  0%, 100% { opacity: .5; }
+  50%       { opacity: 1; }
+}
+@keyframes loaderSlide {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}

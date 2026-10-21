@@ -1,0 +1,59 @@
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── CSS Variables ───────────────────────────────────────── */
+:root {
+  --bg:        #080808;
+  --sidebar:   #0d0d0d;
+  --card:      #161616;
+  --card2:     #202020;
+  --border:    #282828;
+  --border2:   #333333;
+  --txt:       #f0f0f0;
+  --txt2:      #7a7a7a;
+  --txt3:      #404040;
+  --btn-bg:    #ffffff;
+  --btn-txt:   #000000;
+  --btn-hover: #dedede;
+  --user-bg:   #f0f0f0;
+  --user-txt:  #080808;
+  --bot-line:  #303030;
+  --radius:    10px;
+  --shadow:    0 16px 56px rgba(0,0,0,.85);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,.5);
+  --accent:    rgba(255,255,255,.06);
+}
+
+[data-theme="light"] {
+  --bg:        #ffffff;
+  --sidebar:   #f5f5f5;
+  --card:      #ebebeb;
+  --card2:     #dcdcdc;
+  --border:    #c8c8c8;
+  --border2:   #b4b4b4;
+  --txt:       #080808;
+  --txt2:      #666666;
+  --txt3:      #aaaaaa;
+  --btn-bg:    #080808;
+  --btn-txt:   #ffffff;
+  --btn-hover: #2a2a2a;
+  --user-bg:   #080808;
+  --user-txt:  #f0f0f0;
+  --bot-line:  #c0c0c0;
+  --shadow:    0 16px 56px rgba(0,0,0,.12);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,.08);
+  --accent:    rgba(0,0,0,.04);
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  height: 100vh;
+  overflow: hidden;
+  transition: background .35s ease, color .35s ease;
+}
+
+/* ── App layout ──────────────────────────────────────────── */
+.app { display: flex; height: 100vh; }
